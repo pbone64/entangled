@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>io.github.pbone64.Entangled</id>
+  <name>Entangled</name>
+  <!-- TODO <url type="homepage"></url> -->
+
+  <summary>Sync folders between your devices</summary>
+  <description>
+    <p>NOTE: Entangled currently requires Syncthing to be installed on the host machine.</p>
+    <p>Sync folders between devices using Syncthing, a popular privacy-focused syncing network.</p>
+    <p>All synced files are encrypted end-to-end.</p>
+  </description>
+
+  <developer id="io.github.pbone64">
+    <name translate="no">pbone</name>
+  </developer>
+
+  <launchable type="desktop-id">io.github.pbone64.Entangled.desktop</launchable>
+  <provides>
+    <binary>entangled</binary>
+    <binary>entangled-daemon</binary>
+  </provides>
+
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+
+  <categories>
+    <category>Network</category>
+  </categories>
+
+  <keywords>
+    <keyword translate="no">syncthing</keyword>
+    <keyword>sync</keyword>
+    <keyword>files</keyword>
+    <keyword>folders</keyword>
+  </keywords>
+
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+
+    <internet>always</internet>
+  </supports>
+
+  <branding>
+    <!-- TODO change colour once design is finalized-->
+    <color type="primary" scheme_preference="light">#000000</color>
+    <color type="primary" scheme_preference="light">#ffffff</color>
+  </branding>
+</component>
+

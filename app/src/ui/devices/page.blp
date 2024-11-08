@@ -1,0 +1,39 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $EntangledDevicesPage : Adw.PreferencesPage {
+    Adw.PreferencesGroup accepted_devices {
+        title: _("Connected Devices");
+
+        header-suffix: Gtk.Button connect_new_device_button {
+            icon-name: "list-add-symbolic";
+            tooltip-text: _("Connect device");
+            clicked => $on_connect_new_device();
+
+            styles ["flat"]
+        };
+    }
+
+    // The Revealers need to be wrapped in this empty preferences group else
+    //  they're layed out improperly
+    Adw.PreferencesGroup {
+        Gtk.Revealer outgoing_connections_revealer {
+            reveal-child: false;
+
+            Adw.PreferencesGroup outgoing_connections {
+                title: _("Outgoing New Connections");
+                description: _("You have offered to connect with the following devices. The connection must be approved by them");
+            }
+        }
+
+        Gtk.Revealer incoming_connections_revealer {
+            reveal-child: false;
+
+            Adw.PreferencesGroup incoming_connections {
+                title: _("Incoming New Connections");
+                description: _("The following devices have offered to connected and are pending your approval");
+            }
+        }
+    }
+}
+

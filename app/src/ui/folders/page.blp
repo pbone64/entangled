@@ -1,0 +1,27 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $EntangledFoldersPage : Adw.PreferencesPage {
+    Adw.PreferencesGroup tracked_folders {
+        title: _("Tracked Folders");
+
+        header-suffix: Gtk.Button {
+            icon-name: "list-add-symbolic";
+            tooltip-text: _("Add tracked folder");
+
+            styles ["flat"]
+        };
+    }
+
+    Adw.PreferencesGroup {
+        Gtk.Revealer pending_folders_revealer{
+            reveal-child: false;
+
+            Adw.PreferencesGroup pending_folders {
+                title: _("Incoming Folders");
+                description: _("The following folders have ");
+            }
+        }
+    }
+}
+

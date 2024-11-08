@@ -1,0 +1,12 @@
+data/io.github.pbone64.Entangled.desktop.in
+data/io.github.pbone64.Entangled.metainfo.xml.in
+data/io.github.pbone64.Entangled.gschema.xml
+
+src/app/application.vala
+
+src/app/ui/main-window.blp
+src/app/ui/page-devices.blp
+src/app/ui/page-folders.blp
+
+src/app/ui/preferences/window.blp
+

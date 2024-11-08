@@ -1,0 +1,78 @@
+{
+  "id": "io.github.pbone64.Entangled",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "47",
+  "sdk": "org.gnome.Sdk",
+  "sdk-extensions": [
+    "org.freedesktop.Sdk.Extension.vala"
+  ],
+  "command": "entangled",
+  "finish-args": [
+    "--share=network",
+    "--filesystem=home:create",
+    "--share=ipc",
+    "--socket=fallback-x11",
+    "--device=dri",
+    "--socket=wayland"
+  ],
+  "cleanup": [
+    "/include",
+    "/lib/pkgconfig",
+    "/man",
+    "/share/doc",
+    "/share/gtk-doc",
+    "/share/man",
+    "/share/pkgconfig",
+    "/share/vala",
+    "*.la",
+    "*.a"
+  ],
+  "modules": [
+    {
+      "name": "blueprint-compiler",
+      "buildsystem": "meson",
+      "cleanup": ["*"],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler",
+          "tag": "v0.14.0"
+        }
+      ]
+    },
+    {
+      "name": "libportal",
+      "buildsystem": "meson",
+      "config-opts": [
+        "-Ddocs=false",
+        "-Dtests=false",
+        "-Dvapi=true",
+        "-Dbackend-gtk4=enabled",
+        "-Dbackend-qt5=disabled"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/flatpak/libportal.git",
+          "tag": "0.7.1"
+        }
+      ]
+    },
+    {
+      "name": "entangled",
+      "builddir": true,
+      "buildsystem": "meson",
+      "build-options": {
+        "append-path": "/usr/lib/sdk/vala/bin",
+        "prepend-ld-library-path": "/usr/lib/sdk/vala/lib"
+      },
+      "sources": [
+        {
+          "type": "dir",
+          "path": "."
+        }
+      ]
+    }
+  ]
+}
+

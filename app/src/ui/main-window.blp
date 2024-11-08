@@ -1,0 +1,82 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $EntangledMainWindow : Adw.ApplicationWindow {
+    title: _("Entangled");
+
+    width-request: 360;
+    height-request: 294;
+
+    default-width: 550;
+    default-height: 480;
+
+    Adw.Breakpoint {
+        condition ("max-width: 360sp")
+
+        setters {
+          header.title-widget: null;
+          switcher_bar.reveal: true;
+        }
+    }
+
+    content: Adw.ToolbarView {
+        [top]
+        Adw.HeaderBar header {
+            title-widget: Adw.ViewSwitcher switcher_title {
+                stack: views;
+                policy: wide;
+            };
+
+            [end]
+            Gtk.MenuButton main_menu {
+                tooltip-text: _("Main Menu");
+                icon-name: "open-menu-symbolic";
+                menu-model: primary_menu;
+                primary: true;
+            }
+        }
+
+        [bottom]
+        Adw.ViewSwitcherBar switcher_bar {
+            stack: views;
+        }
+
+        content: Adw.ViewStack views {
+            Adw.ViewStackPage view_folders {
+                name: "view_folders";
+                title: _("_Folders");
+                icon-name: "folder-symbolic";
+                use-underline: true;
+
+                child: $EntangledFoldersPage page_folders { };
+            }
+
+            Adw.ViewStackPage view_devices {
+                name: "view_devices";
+                title: _("_Devices");
+                icon-name: "computer-symbolic";
+                use-underline: true;
+
+                child: $EntangledDevicesPage page_devices { };
+            }
+        };
+    };
+}
+
+menu primary_menu {
+    item {
+        label: _("_Preferences");
+        action: "app.preferences";
+    }
+
+    item {
+      label: _("_Keyboard Shortcuts");
+      action: "win.show-help-overlay";
+    }
+
+    item {
+      label: _("_About Entangled");
+      action: "app.about";
+    }
+}
+

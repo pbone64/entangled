@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns="http://usefulinc.com/ns/doap#">
+
+  <name>Entangled</name>
+  <shortdesc xml:lang="en">A frontend for Syncthing built with GNOME technologies</shortdesc>
+  <description xml:lang="en">
+    Entangled is a gtk4 + adw configuration frontend for Syncthing.
+  </description>
+
+  <programming-language>Vala</programming-language>
+
+  <!-- <repository> -->
+  <!--  <GitRepository> -->
+  <!--    <location rdf:resource="https://github.com/pbone64/entangled.git"/> -->
+  <!--    <browse rdf:resource="https://github.com/pbone64/entangled/"/> -->
+  <!--  </GitRepository> -->
+  <!-- </repository> -->
+
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>pbone</foaf:name>
+      <foaf:homepage rdf:resource="https://pbone64.github.io" />
+    </foaf:Person>
+  </maintainer>
+</Project>

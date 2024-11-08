@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Entangled
+Exec=entangled
+Icon=io.github.pbone64.Entangled
+Terminal=false
+Type=Application
+Categories=GTK;
+StartupNotify=true
+

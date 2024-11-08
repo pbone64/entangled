@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/io/github/pbone64/Entangled/App">
+    <file preprocess="xml-stripblanks" alias="data/io.github.pbone64.Entangled.metainfo.xml">../data/io.github.pbone64.Entangled.metainfo.xml</file>
+
+    <file preprocess="xml-stripblanks" alias="gtk/help-overlay.ui">ui/help-overlay.ui</file>
+
+    <file preprocess="xml-stripblanks">ui/main-window.ui</file>
+
+    <file preprocess="xml-stripblanks">ui/devices/page.ui</file>
+    <file preprocess="xml-stripblanks">ui/devices/dialog_add_device.ui</file>
+
+    <file preprocess="xml-stripblanks">ui/folders/page.ui</file>
+
+    <file preprocess="xml-stripblanks">ui/preferences/window.ui</file>
+  </gresource>
+  <gresource prefix="/io/github/pbone64/icons/scalable/actions/">
+    <file preprocess="xml-stripblanks">../data/icons/symbolic/qr-code-scanner-symbolic.svg</file>
+  </gresource>
+</gresources>
+
+

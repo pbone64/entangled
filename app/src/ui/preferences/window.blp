@@ -1,0 +1,20 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $EntangledPreferencesWindow : Adw.PreferencesDialog {
+    Adw.PreferencesPage {
+        Adw.PreferencesGroup connection {
+            title: _("Syncthing Connection");
+
+            Adw.SpinRow port_row {
+                title: _("Port");
+                adjustment: Adjustment {
+                    value: bind template.syncthing_port bidirectional;
+                    lower: 1024;
+                    upper: 65535;
+                    step-increment: 1;
+                };
+            }
+        }
+    }
+}

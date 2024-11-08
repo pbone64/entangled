@@ -1,0 +1,72 @@
+using Gtk 4.0;
+using Adw 1;
+
+// TODO scan QR code
+template $EntangledDevicesDialogAddDevice : Adw.Dialog {
+    title: _("Connect Device");
+
+    content-width: 420;
+    content-height: 265;
+
+    Adw.ToolbarView {
+        reveal-bottom-bars: false;
+        extend-content-to-bottom-edge: true;
+
+        [top]
+        Adw.HeaderBar { }
+
+        content: Adw.PreferencesPage {
+            Adw.PreferencesGroup add_new_connection {
+                Adw.ActionRow scan_qr_code {
+                    icon-name: "qr-code-scanner-symbolic";
+
+                }
+
+                Adw.EntryRow device_name_entry {
+                    title: _("Name");
+                    text: bind template.device_name_text bidirectional;
+                    changed => $check_device_name_text();
+                }
+
+                Adw.EntryRow device_id_entry {
+                    title: _("Device ID");
+                    text: bind template.device_id_text bidirectional;
+                    changed => $check_device_id_text();
+                }
+
+                Gtk.Revealer device_name_feedback_label_revealer {
+                    Gtk.Label device_name_feedback_label {
+                        label: _("Device name is required.");
+                        margin-top: 6;
+                        halign: start;
+
+                        styles ["caption", "warning"]
+                    }
+                }
+
+                Gtk.Revealer device_id_feedback_label_revealer {
+                    Gtk.Label device_id_feedback_label {
+                        // TODO better feedback text
+                        label: _("Invalid device ID.");
+                        margin-top: 6;
+                        halign: start;
+
+                        styles ["caption", "warning"]
+                    }
+                }
+
+                Gtk.Button {
+                    label: _("Add");
+                    halign: center;
+                    valign: center;
+                    vexpand: true;
+                    sensitive: bind template.valid_device_id;
+                    clicked => $on_confirm_clicked();
+
+                    styles ["pill", "suggested-action"]
+                }
+            }
+        };
+    }
+}
+

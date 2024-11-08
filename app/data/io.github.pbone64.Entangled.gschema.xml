@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="entangled">
+  <schema id="io.github.pbone64.Entangled" path="/io/github/pbone64/Entangled/">
+    <key name="syncthing-port" type="i">
+      <default>8384</default>
+      <range min="1024" max="65535" />
+    </key>
+  </schema>
+</schemalist>
+
